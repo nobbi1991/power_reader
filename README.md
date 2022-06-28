@@ -23,7 +23,7 @@ The other side has three pairs of connectors:
 
 ![PCB with flasher](pictures/pcb_with_flasher.jpg)
 
-For flashing a ``YP-05 flasher`` is used. Check the pictures how to connect it.
+For flashing a ``YP-05 flasher`` is used. Check the picture how to connect it.
 - The Jumper of the flasher must be set to 5V
 - The Jumper on the PCB must be next to the blue wire on the PCB
 
