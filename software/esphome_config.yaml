@@ -1,0 +1,125 @@
+esphome:
+  name: esphome-ethernet-test
+
+esp32:
+  board: esp-wrover-kit
+  framework:
+    type: arduino
+    
+ethernet:
+  type: LAN8720
+  mdc_pin: GPIO23
+  mdio_pin: GPIO18
+  clk_mode: GPIO0_IN
+  phy_addr: 1
+  power_pin: GPIO16
+  
+
+# Enable logging
+logger:
+
+mqtt:
+  broker: 192.168.xxx.xx
+  port: 1883
+  username: username
+  password: pw
+
+ota:
+  password: "xxx"
+  
+uart:
+  rx_pin: GPIO5  # RXD
+  tx_pin: GPIO17 # TXD
+  baud_rate: 9600
+  stop_bits: 1
+
+modbus:
+  flow_control_pin: GPIO33
+
+sensor:
+  - platform: sdm_meter
+    phase_a:
+      current:
+        name: "sdm1_ph1_current"
+      voltage:
+        name: "sdm1_ph1_voltage"
+      active_power:
+        name: "sdm1_ph1_power"
+    phase_b:
+      current:
+        name: "sdm1_ph2_current"
+      voltage:
+        name: "sdm1_ph2_voltage"
+      active_power:
+        name: "sdm1_ph2_power"
+    phase_c:
+      current:
+        name: "sdm1_ph3_current"
+      voltage:
+        name: "sdm1_ph3_voltage"
+      active_power:
+        name: "sdm1_ph3_power"
+    total_power:
+      name: "sdm1_total_power"
+    import_active_energy:
+      name: "sdm1_import_active_energy"
+    update_interval: 10s
+    address: 1
+    
+  - platform: sdm_meter
+    phase_a:
+      current:
+        name: "sdm2_ph1_current"
+      voltage:
+        name: "sdm2_ph1_voltage"
+      active_power:
+        name: "sdm2_ph1_power"
+    phase_b:
+      current:
+        name: "sdm2_ph2_current"
+      voltage:
+        name: "sdm2_ph2_voltage"
+      active_power:
+        name: "sdm2_ph2_power"
+    phase_c:
+      current:
+        name: "sdm2_ph3_current"
+      voltage:
+        name: "sdm2_ph3_voltage"
+      active_power:
+        name: "sdm2_ph3_power"
+    total_power:
+      name: "sdm2_total_power"
+    import_active_energy:
+      name: "sdm2_import_active_energy"
+    update_interval: 10s
+    address: 2
+    
+  - platform: sdm_meter
+    phase_a:
+      current:
+        name: "sdm3_ph1_current"
+      voltage:
+        name: "sdm3_ph1_voltage"
+      active_power:
+        name: "sdm3_ph1_power"
+    phase_b:
+      current:
+        name: "sdm3_ph2_current"
+      voltage:
+        name: "sdm3_ph2_voltage"
+      active_power:
+        name: "sdm3_ph2_power"
+    phase_c:
+      current:
+        name: "sdm3_ph3_current"
+      voltage:
+        name: "sdm3_ph3_voltage"
+      active_power:
+        name: "sdm3_ph3_power"
+    total_power:
+      name: "sdm3_total_power"
+    import_active_energy:
+      name: "sdm3_import_active_energy"
+    update_interval: 10s
+    address: 3
